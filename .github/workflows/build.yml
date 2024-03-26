@@ -61,7 +61,7 @@ jobs:
       - uses: nttld/setup-ndk@v1
         id: setup-ndk
         with:
-          ndk-version: r21b
+          ndk-version: r25c
           add-to-path: true
       - name: Build shared libraries
         if: ${{ matrix.config != 'android_fat_aar' }}
