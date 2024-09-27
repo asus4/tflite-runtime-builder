@@ -79,10 +79,6 @@ jobs:
           bazel build -c opt --config=${{ matrix.config }} --cxxopt=--std=c++17 --define=xnn_enable_arm_fp16=false --define=xnn_enable_arm_i8mm=false --copt -Os --copt -DTFLITE_GPU_BINARY_RELEASE --copt -fvisibility=hidden --linkopt -s --strip always tensorflow/lite/delegates/gpu:libtensorflowlite_gpu_delegate.so
           cp -f bazel-bin/tensorflow/lite/delegates/gpu/libtensorflowlite_gpu_delegate.so artifact
 
-          # GL Delegate
-          bazel build -c opt --config=${{ matrix.config }} --cxxopt=--std=c++17 --define=xnn_enable_arm_fp16=false --define=xnn_enable_arm_i8mm=false --copt -Os --copt -DTFLITE_GPU_BINARY_RELEASE --copt -fvisibility=hidden --linkopt -s --strip always tensorflow/lite/delegates/gpu:libtensorflowlite_gpu_gl.so
-          cp -f bazel-bin/tensorflow/lite/delegates/gpu/libtensorflowlite_gpu_gl.so artifact
-
           # NNAPI Delegate
           # bazel build -c opt --config=${{ matrix.config }} --cxxopt=--std=c++17 --define=xnn_enable_arm_fp16=false --define=xnn_enable_arm_i8mm=false tensorflow/lite/delegates/nnapi:nnapi_delegate
           # cp -f bazel-bin/tensorflow/lite/delegates/nnapi/libnnapi_delegate.so artifact
