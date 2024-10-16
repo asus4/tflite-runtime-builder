@@ -101,6 +101,11 @@ jobs:
         run: |
           mv artifact/ "${{ matrix.artifact_name }}-${{ env.VERSION }}"
           tar czf "${{ matrix.artifact_name }}-${{ env.VERSION }}.tgz" "${{ matrix.artifact_name }}-${{ env.VERSION }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}-${{ env.VERSION }}
+          path: ${{ matrix.artifact_name }}-${{ env.VERSION }}
+          retention-days: 1
       - uses: softprops/action-gh-release@v1
         with:
           files: "*.tgz"
@@ -154,6 +159,11 @@ jobs:
 
           mv artifact/ "${{ matrix.artifact_name }}-${{ env.VERSION }}"
           7z a "${{ matrix.artifact_name }}-${{ env.VERSION }}.zip" "${{ matrix.artifact_name }}-${{ env.VERSION }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}-${{ env.VERSION }}
+          path: ${{ matrix.artifact_name }}-${{ env.VERSION }}
+          retention-days: 1
       - uses: softprops/action-gh-release@v1
         with:
           files: "*.zip"
@@ -193,6 +203,11 @@ jobs:
 
           mv artifact/ "${{ matrix.artifact_name }}-${{ env.VERSION }}"
           tar cfz "${{ matrix.artifact_name }}-${{ env.VERSION }}.tgz" "${{ matrix.artifact_name }}-${{ env.VERSION }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}-${{ env.VERSION }}
+          path: ${{ matrix.artifact_name }}-${{ env.VERSION }}
+          retention-days: 1
       - uses: softprops/action-gh-release@v1
         with:
           files: "*.tgz"
@@ -301,6 +316,11 @@ jobs:
 
           mv artifact/ "${{ matrix.artifact_name }}-${{ env.VERSION }}"
           7z a "${{ matrix.artifact_name }}-${{ env.VERSION }}.zip" "${{ matrix.artifact_name }}-${{ env.VERSION }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}-${{ env.VERSION }}
+          path: ${{ matrix.artifact_name }}-${{ env.VERSION }}
+          retention-days: 1
       - uses: softprops/action-gh-release@v1
         with:
           files: "*.zip"
