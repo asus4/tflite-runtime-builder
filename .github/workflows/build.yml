@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Semantic version (e.g., 2.19.0)"
+        description: "Semantic version (e.g., 2.21.0)"
         required: true
       release:
         description: "If true, release the artifact"
@@ -36,7 +36,7 @@ permissions:
 env:
   VERSION:
     |- # Enter release tag name or version in workflow_dispatch. Recent version if not specified
-    ${{ github.event.release.tag_name || github.event.inputs.version || '2.19.0' }}
+    ${{ github.event.release.tag_name || github.event.inputs.version || '2.21.0' }}
   REPOSITORY:
     ${{ github.event.inputs.repository || 'tensorflow/tensorflow' }}
 
