@@ -54,8 +54,9 @@ jobs:
             artifact_name: tflite-runtime-android-arm
           - config: android_x86_64
             artifact_name: tflite-runtime-android-x86_64
-          - config: android_fat_aar
-            artifact_name: tflite-runtime-android-fat-aar
+          # Disable far AAR for v2.21.0 due to build failure.
+          # - config: android_fat_aar
+          #   artifact_name: tflite-runtime-android-fat-aar
     env:
       ANDROID_SDK_API_LEVEL: 35
       ANDROID_NDK_API_LEVEL: 21
